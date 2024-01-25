@@ -12,7 +12,7 @@ interface CreatePostType {
 export const createPost = ({choice,...body}: CreatePostType) => {
     let choices = {} as any;
     if(body.type === "4") choice?.forEach((e,idx) => {
-        choices["choice"+idx] = e
+        choices["choice"+(idx+1)] = e
     })
     return instance.post("/makeQuestion", { ...choices,...body,accessToken: getLocalItem("access") })
 }
