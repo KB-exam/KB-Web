@@ -26,11 +26,11 @@ export default () => {
             {state.map(({title, empNumber, questionId}) => <div className="flex gap-3 w-full ">
                 <div className="px-3 py-2 flex items-center justify-between w-full shadow-md rounded-lg">
                     <div>{title}</div>
-                    <div>
+                    <div className="shrink-0">
                         {/* <Link href={"/write/"+questionId}>
                             <Button className="bg-[#595041] text-yellow-400 rounded-md">수정하기</Button>
                         </Link> */}
-                        <Button className="bg-[#595041] text-yellow-400 rounded-md" onClick={() => deleteQuiz(questionId)}>삭제하기</Button>
+                        <Button className="bg-[#595041] text-yellow-400 rounded-md shrink-0" onClick={() => deleteQuiz(questionId)}>삭제하기</Button>
                     </div>
                 </div>
             </div>)}
