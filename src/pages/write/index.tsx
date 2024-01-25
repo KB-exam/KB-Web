@@ -1,9 +1,11 @@
 import { createPost } from "@/apis/quiz/createPost";
+import { putQuiz } from "@/apis/quiz/putQuiz";
 import { Button } from "@/components/button"
 import { Dropdown } from "@/components/dropdown"
 import { Input } from "@/components/input"
 import { useWirte } from "@/hooks/useWrite"
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const type2 = ["O","X"];
 const type4 = ['1','2','3','4']
@@ -13,10 +15,19 @@ export const WritePage = (id?: string) => {
     const { push } = useRouter();
 
     const writeApi = async () => {
-        const {category,...other} = state.problems[0]
-        const { status } = await createPost(other)
-        if(status === 200) push("/profile")
+        const other = state.problems[0]
+        
+        if(id) {
+            putQuiz(other);
+        }else {
+            const { status } = await createPost(other)
+            if(status === 200) push("/profile")
+        }
     }
+
+    useEffect(() => {
+
+    },[])
 
     return <main className="py-32 px-10 flex justify-center">
         {

@@ -1,7 +1,7 @@
 import { getLocalItem } from "@/util/localstorage";
 import { instance } from ".."
 
-interface CreatePostType {
+export interface CreatePostType {
     "title": string,
     "content": string,
     "type": "2" | "4",
