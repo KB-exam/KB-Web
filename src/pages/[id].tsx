@@ -29,6 +29,7 @@ export default () => {
         });
         return correctCount
     }
+    console.log(state)
     return <main className="pt-28 h-full flex justify-center items-center">
         <div className="flex flex-col gap-3 px-10">
             {page+1} / {state.length}
@@ -48,7 +49,7 @@ export default () => {
                     <Button onClick={() => checkAnswer("O")}>
                         O
                     </Button>
-                    <Button onClick={() => checkAnswer("O")}>
+                    <Button onClick={() => checkAnswer("X")}>
                         X
                     </Button>
                 </div> : <div className="flex flex-col gap-3">
