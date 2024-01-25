@@ -75,7 +75,7 @@ export default () => {
                 {modal && <div className="fixed -mt-52 flex flex-col w-40 px-5 py-3 bg-white shadow-lg rounded-lg border-[1px] border-gray-400">
                     <div>맞은 문제 {getCorrect("plus")}</div>
                     <div>틀린 문제 {getCorrect("minus")}</div>
-                    <div>남은 문제 {state.length - getCorrect("plus") + getCorrect("minus") }</div>
+                    <div>남은 문제 {state.length - getCorrect("plus") - getCorrect("minus") }</div>
                     <Button onClick={() => setModal(false)}>
                         닫기
                     </Button>
