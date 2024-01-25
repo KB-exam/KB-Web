@@ -12,12 +12,21 @@ export const Header = () => {
        <Link href={"/"}>
          KB CPT
        </Link>
-       {
-          <Link href={token ? "/write" : "/auth/sign-in"}>
-            <Button className="border-0 bg-[#595041] text-yellow-400 text-xl rounded-lg ">
-            {token ? "작성하기" : "로그인/회원가입"}
-            </Button>        
-          </Link>
-        }
+       <div className="flex gap-3">
+        {token && <Link href={"/profile"}>
+              <Button className="border-0 bg-[#595041] text-yellow-400 text-xl rounded-lg ">
+                내 퀴즈
+              </Button>        
+            </Link>}
+        {
+            <Link href={token ? "/write" : "/auth/sign-in"}>
+              <Button className="border-0 bg-[#595041] text-yellow-400 text-xl rounded-lg ">
+              {token ? "작성하기" : "로그인/회원가입"}
+              </Button>        
+            </Link>
+          }
+       </div>
+       
+        
     </header>
 }
