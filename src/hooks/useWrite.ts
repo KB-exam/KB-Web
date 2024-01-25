@@ -2,11 +2,11 @@ import { ChangeEvent, useState } from "react"
 
 interface ProblemType {
     type: "2" | "4",
-    tag: string;
+    category: string;
     title: string;
     content: string;
     choice: string[];
-    answer: number;
+    answer: string;
 }
 
 interface WriteType {
@@ -16,27 +16,19 @@ interface WriteType {
 const problemInit:ProblemType = {
     type: "4",
     title: '',
-    tag: '',
+    category: '',
     content: '',
-    choice: [],
-    answer: 0,
+    choice: ['','','',''],
+    answer: '1',
 }
 
 export const useWirte = () => {
     const [state,setState] = useState<WriteType>({
-        problems: [],
+        problems: [problemInit],
     })
 
     return {
         state,
-        changeText: (e: ChangeEvent<HTMLInputElement>) =>  {
-            const { name ,value } = e.target;
-            setState({...state,[name]: value})
-        },
-        addProblem: () => setState({...state,problems: state.problems.concat(problemInit)}),
-        removeProblem: () => {
-
-        },
         problem: (index: number) => {
         const { problems } = state
         const problemChange = (problems: ProblemType[]) => setState({...state,problems})
@@ -47,8 +39,8 @@ export const useWirte = () => {
         }
     
         const changeType = {
-            2: () => problemChange(changeElement(index, { ...problems[index], type: "2"})),
-            4: () => problemChange(changeElement(index, { ...problems[index], type: "4"}))
+            2: () => problemChange(changeElement(index, { ...problems[index], type: "2", answer: "O"})),
+            4: () => problemChange(changeElement(index, { ...problems[index], type: "4", answer: "1"}))
         }
 
         const changeChoice = (choiceIndex: number) => (e:ChangeEvent<HTMLInputElement>) => {
@@ -63,10 +55,15 @@ export const useWirte = () => {
             const { name, value } = e.target
             problemChange(changeElement(index, {...problem, [name]: value }))
         }
+        const clickProblemText = (text: string) => {
+            const problem = problems[index];
+            problemChange(changeElement(index, {...problem, "answer": text }))
+        }
         return {
             changeType,
             changeChoice,
             changeProblemText,
+            clickProblemText,
         }
     }}
 }

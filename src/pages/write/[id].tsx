@@ -1,5 +1,7 @@
+import { useRouter } from 'next/router';
+import { WritePage } from '.';
+
 export default () => {
-    return <main>
-        default page
-    </main>
+    const { query } = useRouter()
+    return WritePage(query.id as string | undefined)
 }

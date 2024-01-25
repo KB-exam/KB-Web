@@ -1,13 +1,16 @@
-import { ReactNode } from "react"
+import { FormEvent, ReactNode } from "react"
+
+type SubmitType = (e: FormEvent<HTMLFormElement>) => void;
 
 interface PropsType {
-    children: ReactNode
+    children: ReactNode;
+    onSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
-export const AuthLayer = ({ children }:PropsType) => {
+export const AuthLayer = ({ children, onSubmit }:PropsType) => {
     return <main className=" h-full w-full flex justify-center items-center">
-        <div className=" w-96 px-4 py-8 bg-white shadow-md rounded-sm">
+        <form onSubmit={onSubmit} className=" w-96 px-4 py-8 bg-white shadow-lg rounded-sm flex flex-col gap-3">
             {children}
-        </div>
+        </form>
     </main>
 }
