@@ -19,7 +19,7 @@ export default () => {
         }
     }
 
-    return <main className="pt-24 flex justify-center">
+    return <main className="pt-24 h-full flex justify-center">
         <div className="flex flex-col items-center gap-3 max-w-[624px] w-full">
             <h1 className=" text-3xl">내가 만든 퀴즈</h1>
             {state.map(({title, empNumber, questionId}) => <div className="flex gap-3 w-full ">
