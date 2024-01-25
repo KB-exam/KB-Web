@@ -10,7 +10,7 @@ export const Header = () => {
     }) 
     return <header className=" fixed px-[20%] bg-white text-yellow-400 font-bold text-2xl flex justify-between items-center w-full h-20 shadow-md">
        <Link href={"/"}>
-         KB CPT
+         KB CBT
        </Link>
        <div className="flex gap-3">
         {token && <Link href={"/profile"}>
