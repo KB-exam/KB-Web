@@ -30,7 +30,7 @@ export default () => {
         return correctCount
     }
     console.log(state)
-    return <main className="pt-28 h-full flex justify-center items-center">
+    return <main className="pt-28 min-h-full flex justify-center items-center">
         <div className="flex flex-col gap-3 px-10">
             {page+1} / {state.length}
             {!!state.length && (() => {
